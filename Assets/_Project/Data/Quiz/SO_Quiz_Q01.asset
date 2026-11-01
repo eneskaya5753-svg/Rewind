@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5818efb3796039948ade3ab05c172ec9, type: 3}
+  m_Name: SO_Quiz_Q01
+  m_EditorClassIdentifier: Assembly-CSharp::EcoGame.Data.QuizQuestionData
+  question: "Bir cam \u015Fi\u015Fenin do\u011Fada \xE7\xF6z\xFCnmesi yakla\u015F\u0131k
+    ne kadar s\xFCrer?"
+  answers:
+  - "10 y\u0131l"
+  - "100 y\u0131l"
+  - "1.000 y\u0131l"
+  - "4.000 y\u0131l ve \xFCzeri"
+  correctIndex: 3
+  infoNote: "Cam sonsuz kez geri d\xF6n\xFC\u015Ft\xFCr\xFClebilir, kalitesi d\xFC\u015Fmez."

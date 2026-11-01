@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5818efb3796039948ade3ab05c172ec9, type: 3}
+  m_Name: SO_Quiz_Q03
+  m_EditorClassIdentifier: Assembly-CSharp::EcoGame.Data.QuizQuestionData
+  question: "Geri d\xF6n\xFC\u015Ft\xFCr\xFClen bir al\xFCminyum kutu ne kadar s\xFCrede
+    yeniden rafa d\xF6nebilir?"
+  answers:
+  - "Yakla\u015F\u0131k 60 g\xFCn"
+  - "1 y\u0131l"
+  - "5 y\u0131l"
+  - "Geri d\xF6n\xFC\u015Ft\xFCr\xFClemez"
+  correctIndex: 0
+  infoNote: "Al\xFCminyum kalitesini kaybetmeden tekrar tekrar geri d\xF6n\xFC\u015Ft\xFCr\xFClebilir."

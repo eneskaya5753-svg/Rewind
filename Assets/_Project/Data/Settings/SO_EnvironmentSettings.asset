@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6472bd6d06055af4ea6df721cf52f42f, type: 3}
+  m_Name: SO_EnvironmentSettings
+  m_EditorClassIdentifier: Assembly-CSharp::EcoGame.Data.EnvironmentSettings
+  testMode: 1
+  testTrashPerType: 10
+  startPollution: 50
+  startTemperature: 50
+  startWaterPollution: 50
+  generatorPollutionRate: 0.06
+  generatorTemperatureRate: 0.035
+  trashTemperatureRate: 0.001
+  dryTreePollutionRate: 0.008
+  riverTrashWaterRate: 0.012
+  riverTrashReachSeaWater: 2
+  waterRecoveryRate: 0.5
+  dropSpeed: 1.5
+  thresholds:
+  - 50
+  - 70
+  - 90
+  loseValue: 100
+  thirstDecayPerSecond: 0.25
+  thirstTemperatureMultiplier: 0.02
+  waterTemperatureDrop: 0.5
+  waterableUseThreshold: 90
+  waterableStartThirst: {x: 0, y: 0}
+  gardenFertilizerNeeded: 5
+  gardenTemperatureDrop: 5
+  gardenTemperatureRate: -0.01
+  itemFlySpeed: 12
+  beltSpeed: 3
+  itemSpawnInterval: 0.12
+  machineRunTime: 1.2
+  recoveryRate: 2
+  recoveredValue: 0.5
+  riverTrashCount: 6
+  riverTrashSpeed: 1.5
+  riverTrashSpacing: 8
+  riverTrashStackSpacing: 0.7
+  riverTrashSway: 0.8
+  visualLerpSpeed: 0.5
+  fogStartPollution: 25
+  fogDensityClean: 0.002
+  fogDensityMax: 0.07
+  fogColor: {r: 0.55, g: 0.52, b: 0.45, a: 1}
+  iceMinScale: 0.3
+  waterCleanColor: {r: 0.2, g: 0.55, b: 0.9, a: 1}
+  waterDirtyColor: {r: 0.4, g: 0.3, b: 0.15, a: 1}
+  treeHotColor: {r: 1, g: 0.55, b: 0.1, a: 1}
+  treeDryColor: {r: 0.45, g: 0.3, b: 0.15, a: 1}
+  treeHotRange: {x: 35, y: 75}
+  visitorsByLevel: 03000000020000000100000000000000
+  visitorSpawnInterval: 6
+  visitorSpeed: 2
+  visitorDrinkTime: 4
+  visitorFlyHeight: 2
+  hopSpeed: 0.8
+  hopHeight: 0
+  hopFrequency: 6
+  sickSpeedMultiplier: 0.3
+  lieDownChance: 0.5
+  beeCount: 6
+  beeOrbitRadius: 2.5
+  beeHeight: 1
+  beeSpeed: 1.5

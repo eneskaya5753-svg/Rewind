@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0757989d431d2f849b64107cf1ae47f5, type: 3}
+  m_Name: SO_Trash_Glass
+  m_EditorClassIdentifier: Assembly-CSharp::EcoGame.Data.TrashTypeData
+  type: 0
+  displayName: Cam
+  icon: {fileID: 0}
+  prefab: {fileID: 736308056644405568, guid: ea9c4049203a8494893678ad57d053b2, type: 3}
+  goesToMachine: 1

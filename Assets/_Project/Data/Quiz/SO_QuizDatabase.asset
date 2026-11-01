@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a527f058a2a507849bc7310c5fe47010, type: 3}
+  m_Name: SO_QuizDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::EcoGame.Data.QuizDatabase
+  questions:
+  - {fileID: 11400000, guid: e60ec35b0b9b60d418691fc358919746, type: 2}
+  - {fileID: 11400000, guid: ad322b9816be0a74988e105f50d8f6b3, type: 2}
+  - {fileID: 11400000, guid: ae8f981814d1312489bdfc5063f15836, type: 2}
+  - {fileID: 11400000, guid: ca5164c54c95dee4486a22587477cb93, type: 2}
+  - {fileID: 11400000, guid: 970787377063cb9468d16893267e48a7, type: 2}
+  - {fileID: 11400000, guid: 186e160a21e525e4dbad32b5aa82fa3f, type: 2}
+  - {fileID: 11400000, guid: c73bf9cff0cb39b40a60a7563b5c2446, type: 2}
