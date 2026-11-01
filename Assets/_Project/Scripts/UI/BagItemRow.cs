@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace EcoGame.UI
 {
-    /// <summary>One draggable row in the bag window: picture + trash type.</summary>
+    /// <summary>One draggable row in the bag window: a trash piece or a material bag. Dragging it out drops it.</summary>
     public class BagItemRow : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [SerializeField] private Image icon;
@@ -15,6 +15,7 @@ namespace EcoGame.UI
 
         public int Index { get; private set; }
         public bool IsBag { get; private set; }
+        public TrashType Type { get; private set; }
         public Sprite IconSprite => icon.sprite;
         public Color IconColor => icon.color;
 
@@ -23,18 +24,20 @@ namespace EcoGame.UI
             _owner = owner;
             Index = index;
             IsBag = false;
+            Type = type;
             ColorUtility.TryParseHtmlString(type.BagColorHex(), out var typeColor);
             icon.sprite = sprite;
             icon.color = sprite != null ? Color.white : typeColor;
             label.text = $"<color={type.TextColorHex()}>●</color> {type.DisplayName()}";
         }
 
-        /// <summary>A material bag from the recycler: shown with its amount, not draggable.</summary>
+        /// <summary>A material bag from the recycler, shown with its amount. Dragging it out drops one bag.</summary>
         public void BindBag(BagWindow owner, Sprite bagSprite, TrashType type, int amount)
         {
             _owner = owner;
             Index = -1;
             IsBag = true;
+            Type = type;
             ColorUtility.TryParseHtmlString(type.BagColorHex(), out var typeColor);
             icon.sprite = bagSprite;
             icon.color = typeColor;
@@ -43,17 +46,17 @@ namespace EcoGame.UI
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            if (!IsBag) _owner.BeginDrag(this);
+            _owner.BeginDrag(this);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
-            if (!IsBag) _owner.Drag(eventData.position);
+            _owner.Drag(eventData.position);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
-            if (!IsBag) _owner.EndDrag(this, eventData.position);
+            _owner.EndDrag(this, eventData.position);
         }
     }
 }

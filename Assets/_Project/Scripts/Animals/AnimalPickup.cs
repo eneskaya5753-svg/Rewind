@@ -25,6 +25,8 @@ namespace EcoGame.Animals
         private Vector3 _groundScale;
         private Vector3 _localCenter; // the models pivot at their feet; this is the body center
         private MonoBehaviour[] _movers;
+        private AnimalWanderer _wanderer;
+        private PetFollower _pet;
 
         public bool IsHeld => Held == this;
         public static readonly System.Collections.Generic.List<AnimalPickup> All = new();
@@ -32,8 +34,13 @@ namespace EcoGame.Animals
         /// <summary>Our own pet: no key hint is shown for it.</summary>
         public bool IsPet => GetComponent<PetFollower>() != null;
 
+        /// <summary>Dead animals cannot be picked up.</summary>
+        public bool CanPet => (_wanderer == null || !_wanderer.IsDead) && (_pet == null || !_pet.IsDead);
+
         private void Awake()
         {
+            _wanderer = GetComponent<AnimalWanderer>();
+            _pet = GetComponent<PetFollower>();
             _movers = new MonoBehaviour[]
             {
                 GetComponent<AnimalWanderer>(), GetComponent<AnimalVisitor>(), GetComponent<PetFollower>()

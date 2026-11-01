@@ -162,8 +162,9 @@ namespace EcoGame.UI
         public void EndDrag(BagItemRow row, Vector2 screenPosition)
         {
             EndDrag();
-            if (!RectTransformUtility.RectangleContainsScreenPoint(PanelRect, screenPosition, null))
-                interactor.DropBagItem(row.Index);
+            if (RectTransformUtility.RectangleContainsScreenPoint(PanelRect, screenPosition, null)) return;
+            if (row.IsBag) interactor.DropMaterialBag(row.Type);
+            else interactor.DropBagItem(row.Index);
         }
 
         private void EndDrag()

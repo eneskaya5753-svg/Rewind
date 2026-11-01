@@ -1,10 +1,14 @@
+using EcoGame.Environment;
 using EcoGame.Player;
 using EcoGame.Utils;
 using UnityEngine;
 
 namespace EcoGame.Animals
 {
-    /// <summary>Pet that trots after the player and sits down nearby when it catches up.</summary>
+    /// <summary>
+    /// Pet that trots after the player and sits down nearby when it catches up.
+    /// Not immortal: at the worst pollution level it dies like the other animals, and stays dead.
+    /// </summary>
     public class PetFollower : MonoBehaviour
     {
         [SerializeField] private float followDistance = 1.8f;
@@ -15,8 +19,22 @@ namespace EcoGame.Animals
         private Transform _player;
         private bool _moving;
 
+        public bool IsDead { get; private set; }
+
         private void Update()
         {
+            var environment = EnvironmentManager.Instance;
+            if (!IsDead && environment != null && environment.PollutionLevel >= environment.Settings.thresholds.Length)
+            {
+                IsDead = true;
+                Notifier.Show("Kedin kirli havaya dayanamadı...");
+            }
+            if (IsDead)
+            {
+                transform.rotation = Quaternion.Euler(0f, transform.eulerAngles.y, 90f);
+                return;
+            }
+
             if (_player == null)
             {
                 if (PlayerInteractor.Instance == null) return;

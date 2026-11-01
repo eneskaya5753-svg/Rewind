@@ -9,13 +9,18 @@ using UnityEngine;
 
 namespace EcoGame.Core
 {
-    /// <summary>Watches win conditions, then runs the recovery phase.</summary>
+    /// <summary>
+    /// Once every building is up, nature starts healing on its own. The game is won when air pollution,
+    /// temperature and water pollution have all dropped to <see cref="winThreshold"/> or below.
+    /// </summary>
     public class ObjectiveManager : MonoBehaviour
     {
         [SerializeField] private List<BuildSite> buildSites = new();
         [SerializeField] private Garden garden;
         [SerializeField] private TrashSpawner trashSpawner;
         [SerializeField] private EnvironmentManager environmentManager;
+        [Tooltip("All three metrics must be at or below this (%) to win.")]
+        [SerializeField] private float winThreshold = 15f;
 
         private bool _finished;
 
@@ -44,13 +49,15 @@ namespace EcoGame.Core
 
             if (!RecoveryStarted)
             {
-                if (CompletedBuildings < BuildingCount || !GardenDone || TrashRemaining > 0) return;
+                if (CompletedBuildings < BuildingCount) return;
                 RecoveryStarted = true;
                 environmentManager.StartRecovery();
-                Notifier.Show("Tüm görevler tamam! Doğa iyileşiyor...");
+                Notifier.Show("Tüm yapılar tamam! Doğa iyileşiyor...");
                 OnRecoveryStarted?.Invoke();
             }
-            else if (environmentManager.IsFullyRecovered)
+            else if (environmentManager.Pollution <= winThreshold
+                     && environmentManager.Temperature <= winThreshold
+                     && environmentManager.WaterPollution <= winThreshold)
             {
                 _finished = true;
                 OnRecoveryFinished?.Invoke();

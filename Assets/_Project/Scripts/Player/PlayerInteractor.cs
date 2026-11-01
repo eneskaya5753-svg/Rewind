@@ -23,6 +23,8 @@ namespace EcoGame.Player
         [Tooltip("Where emptied trash goes back to (Q).")]
         [SerializeField] private TrashSpawner trashSpawner;
         [SerializeField] private float dropRadius = 1.4f;
+        [Tooltip("Bag model used when a material bag is dropped on the ground.")]
+        [SerializeField] private GameObject bagPrefab;
 
         public PlayerInventory Inventory => inventory;
         public PlayerSettings Settings => inventory.Settings;
@@ -127,6 +129,15 @@ namespace EcoGame.Player
             Notifier.Feed($"{type.DisplayName()} çöp yere bırakıldı");
         }
 
+        /// <summary>Puts one material bag on the ground in front of the player (dragged out of the bag window).</summary>
+        public void DropMaterialBag(TrashType type)
+        {
+            if (bagPrefab == null || inventory.TakeRaw(type, 1) == 0) return;
+            Vector3 front = transform.position + transform.forward * dropRadius + Random.insideUnitSphere * 0.3f;
+            DroppedBag.Spawn(bagPrefab, type, new Vector3(front.x, transform.position.y, front.z));
+            Notifier.Feed($"<color={type.TextColorHex()}>{type.DisplayName()} torbası</color> yere bırakıldı");
+        }
+
         private Interactable FindNearest()
         {
             float best = Settings.interactRadius;
@@ -152,6 +163,7 @@ namespace EcoGame.Player
             AnimalPickup result = null;
             foreach (var animal in AnimalPickup.All)
             {
+                if (!animal.CanPet) continue;
                 float distance = MathUtil.FlatDistance(transform.position, animal.transform.position);
                 if (distance > best) continue;
                 best = distance;

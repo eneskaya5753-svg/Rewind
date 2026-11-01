@@ -5,8 +5,8 @@ using UnityEngine;
 namespace EcoGame.Animals
 {
     /// <summary>
-    /// Roams inside a box in the play area. Bad air slows it down; at high pollution some animals collapse,
-    /// and at the top level all of them do. They get back up once the air clears.
+    /// Roams inside a box in the play area. Bad air slows it down; at high pollution some animals die,
+    /// and at the top level all of them do. Death is permanent: cleaning up afterwards does not bring them back.
     /// </summary>
     public class AnimalWanderer : MonoBehaviour
     {
@@ -22,6 +22,8 @@ namespace EcoGame.Animals
         private Vector3 _target;
         private float _pause;
         private bool _fragile;
+
+        public bool IsDead { get; private set; }
 
         public void SetArea(Vector3 center, Vector3 size)
         {
@@ -42,8 +44,8 @@ namespace EcoGame.Animals
             int level = environment.PollutionLevel;
             float yaw = transform.eulerAngles.y;
 
-            bool dead = level >= settings.thresholds.Length || (level >= FRAGILE_LEVEL && _fragile);
-            if (dead)
+            if (!IsDead) IsDead = level >= settings.thresholds.Length || (level >= FRAGILE_LEVEL && _fragile);
+            if (IsDead)
             {
                 transform.rotation = Quaternion.Euler(0f, yaw, 90f);
                 return;

@@ -1032,6 +1032,7 @@ MonoBehaviour:
   garden: {fileID: 1319194758}
   trashSpawner: {fileID: 1230242075}
   environmentManager: {fileID: 1568524736}
+  winThreshold: 15
 --- !u!4 &8501256
 Transform:
   m_ObjectHideFlags: 0
@@ -72497,7 +72498,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Tebrikler! Do\u011Fay\u0131 kurtard\u0131n."
+  m_Text: "Tebrikler! Do\u011Fay\u0131 kurtard\u0131n.\n<size=32>Babam\u0131z art\u0131k
+    gelip burada ya\u015Fayabilir.</size>"
 --- !u!222 &799767723
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -83027,6 +83029,10 @@ PrefabInstance:
       propertyPath: cameraModeManager
       value: 
       objectReference: {fileID: 21444583}
+    - target: {fileID: 7920234159853604004, guid: fb96eba0f17d3ea43bc020e3b025fb79, type: 3}
+      propertyPath: bagPrefab
+      value: 
+      objectReference: {fileID: 2548426597415703885, guid: db482bcbaeb6a274aa522eedc55669ab, type: 3}
     - target: {fileID: 7920234159853604004, guid: fb96eba0f17d3ea43bc020e3b025fb79, type: 3}
       propertyPath: trashSpawner
       value: 
